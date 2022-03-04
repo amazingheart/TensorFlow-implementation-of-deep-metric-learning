@@ -1,1 +1,1 @@
-# TenorFlow implementation of deep metric learning
+# TensorFlow implementation of deep metric learning
