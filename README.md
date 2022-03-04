@@ -1,1 +1,1 @@
-# Explicit Nonlinear Metric Learning for Kernel Regression (EN-MLKR) with Siamese Networks
+# TenorFlow implementation of deep metric learning
