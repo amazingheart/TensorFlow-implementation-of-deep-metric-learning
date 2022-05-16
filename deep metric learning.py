@@ -291,42 +291,19 @@ if __name__ == '__main__':
     random_state = 1
 
     # Load data
-    # exp1_indices = np.load('exp1_indices.npy')
-    # exp2_indices = np.load('exp2_indices.npy')
-    # x_model = np.load('x_model.npy')
-    # y_model = np.load('y_model.npy')
-    # x_exp1 = np.load('x_exp1.npy')
-    # y_exp1 = np.load('y_exp1.npy')
-    # x_exp2 = np.load('x_exp2.npy')
-    # y_exp2 = np.load('y_exp2.npy')
-
-    x_model = np.load('Toy.npy')
-    y_model = np.load('Toy_label.npy')
-    N = x_model.shape[0]
-    exp1_indices = []
-    exp2_indices = []
-    for i in range(x_model.shape[0]):
-        if i // 10 % 2 == 0 and i % 10 % 2 == 0:
-            exp1_indices.append(i)
-        if i // 10 % 2 != 0 and i % 10 % 2 != 0:
-            exp2_indices.append(i)
-    exp1_indices = np.array(exp1_indices) + 1
-    exp2_indices = np.array(exp2_indices) + 1
-    x_exp1 = np.load('Toy_noised.npy')[exp1_indices - 1]
-    x_exp2 = np.load('Toy_noised.npy')[exp2_indices - 1]
-    y_exp1 = y_model[exp1_indices - 1]
-    y_exp2 = y_model[exp2_indices - 1]
+    exp1_indices = np.load('exp1_indices.npy')
+    exp2_indices = np.load('exp2_indices.npy')
+    x_model = np.load('x_model.npy')
+    y_model = np.load('y_model.npy')
+    x_exp1 = np.load('x_exp1.npy')
+    y_exp1 = np.load('y_exp1.npy')
+    x_exp2 = np.load('x_exp2.npy')
+    y_exp2 = np.load('y_exp2.npy')
 
     exp1_size = len(exp1_indices)
 
     x_exp1_ = x_model[exp1_indices - 1]
     x_exp2_ = x_model[exp2_indices - 1]
-
-    # x_exp1, x_exp2, x_exp1_, x_exp2_, y_exp1, y_exp2 = train_test_split(np.concatenate((x_exp1, x_exp2)),
-    #                                                                     np.concatenate((x_exp1_, x_exp2_)),
-    #                                                                     np.concatenate((y_exp1, y_exp2)),
-    #                                                                     test_size=len(exp2_indices),
-    #                                                                     random_state=random_state)
 
     if HYBRID:
         x_train = np.concatenate((x_model, x_exp1))
